@@ -49,7 +49,7 @@ variable "postgresql_subnet_cidr" {
 }
 
 variable "postgresql_instance_shape" {
-  default = "VM.Standard.E3.Flex"
+  default = "VM.Standard.E2.1.Micro"
 }
 
 variable "postgresql_instance_flex_shape_ocpus" {
@@ -57,7 +57,7 @@ variable "postgresql_instance_flex_shape_ocpus" {
 }
 
 variable "postgresql_instance_flex_shape_memory" {
-  default = 10
+  default = 1
 }
 
 variable "instance_os" {
@@ -67,7 +67,7 @@ variable "instance_os" {
 
 variable "linux_os_version" {
   description = "Operating system version for all Linux instances"
-  default     = "7.9"
+  default     = "8"
 }
 
 variable "postgresql_master_fd" {
@@ -83,11 +83,11 @@ variable "postgresql_password" {
 }
 
 variable "postgresql_version" {
-  default = "13"
+  default = "14.4"
 }
 
 variable "add_iscsi_volume" {
-  default = true
+  default = false
 }
 
 variable "iscsi_volume_size_in_gbs" {
@@ -95,7 +95,7 @@ variable "iscsi_volume_size_in_gbs" {
 }
 
 variable "boot_volume_backup_policy_enabled" {
-  default = true
+  default = false
 }
 
 variable "boot_volume_backup_policy_level" {
@@ -103,11 +103,11 @@ variable "boot_volume_backup_policy_level" {
 }
 
 variable "boot_volume_initial_backup" {
-  default = true
+  default = false
 }
 
 variable "block_volume_backup_policy_enabled" {
-  default = true
+  default = false
 }
 
 variable "block_volume_backup_policy_level" {
@@ -115,7 +115,7 @@ variable "block_volume_backup_policy_level" {
 }
 
 variable "block_volume_initial_backup" {
-  default = true
+  default = false
 }
 
 variable "postgresql_deploy_hotstandby1" {
@@ -131,7 +131,7 @@ variable "postgresql_hotstandby1_ad" {
 }
 
 variable "postgresql_hotstandby1_shape" {
-  default = "VM.Standard.E3.Flex"
+  default = "VM.Standard.E2.1.Micro"
 }
 
 variable "postgresql_hotstandby1_flex_shape_ocpus" {
@@ -139,7 +139,7 @@ variable "postgresql_hotstandby1_flex_shape_ocpus" {
 }
 
 variable "postgresql_hotstandby1_flex_shape_memory" {
-  default = 10
+  default = 1
 }
 
 variable "postgresql_deploy_hotstandby2" {
@@ -155,7 +155,7 @@ variable "postgresql_hotstandby2_ad" {
 }
 
 variable "postgresql_hotstandby2_shape" {
-  default = "VM.Standard.E3.Flex"
+  default = "VM.Standard.E2.1.Micro"
 }
 
 variable "postgresql_hotstandby2_flex_shape_ocpus" {
@@ -163,14 +163,13 @@ variable "postgresql_hotstandby2_flex_shape_ocpus" {
 }
 
 variable "postgresql_hotstandby2_flex_shape_memory" {
-  default = 10
+  default = 1
 }
 
 # Dictionary Locals
 locals {
   compute_flexible_shapes = [
-    "VM.Standard.E3.Flex",
-    "VM.Standard.E4.Flex"
+    "VM.Standard.E2.1.Micro"
   ]
 }
 
